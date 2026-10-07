@@ -1,0 +1,26 @@
+{
+  "name": "ai-agent-nexus-desktop",
+  "version": "1.0.0",
+  "description": "Desktop app for a 3D AI agent market simulation dashboard",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "dist": "electron-builder"
+  },
+  "keywords": [
+    "ai",
+    "trading",
+    "crypto",
+    "sports-betting",
+    "simulation",
+    "threejs",
+    "desktop-app"
+  ],
+  "author": "Jeremydilf",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^31.7.1",
+    "electron-builder": "^24.13.0"
+  }
+}
