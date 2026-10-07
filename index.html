@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Market Nexus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar glass-panel">
+        <div class="brand-block">
+          <div class="logo-mark">A</div>
+          <div>
+            <div class="eyebrow">AI MARKET OPERATIONS</div>
+            <h1>Agent Nexus</h1>
+          </div>
+        </div>
+
+        <div class="topbar-stats">
+          <div class="stat-pill">
+            <span class="label">Portfolio</span>
+            <strong id="portfolioValue">$18.42M</strong>
+          </div>
+          <div class="stat-pill">
+            <span class="label">Win-rate</span>
+            <strong id="winRate">72.8%</strong>
+          </div>
+          <div class="stat-pill live">
+            <span class="dot"></span>
+            <strong id="marketPulse">LIVE</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <aside class="left-panel glass-panel">
+          <div class="panel-header">
+            <span class="header-label">Market overview</span>
+            <span class="badge positive" id="marketTrend">Bullish</span>
+          </div>
+
+          <div class="ticker-list">
+            <div class="ticker-row">
+              <span>NASDAQ</span>
+              <strong id="nasdaqIndex">18,424.32</strong>
+              <em id="nasdaqDelta" class="positive">+1.24%</em>
+            </div>
+            <div class="ticker-row">
+              <span>BTC/USD</span>
+              <strong id="btcPrice">$64,280</strong>
+              <em id="btcDelta" class="positive">+2.36%</em>
+            </div>
+            <div class="ticker-row">
+              <span>ETH/USD</span>
+              <strong id="ethPrice">$3,420</strong>
+              <em id="ethDelta" class="negative">-0.82%</em>
+            </div>
+            <div class="ticker-row">
+              <span>NFL</span>
+              <strong id="nflLine">Lions +3.5</strong>
+              <em id="nflDelta" class="positive">Sharp</em>
+            </div>
+          </div>
+
+          <div class="mini-graphs">
+            <div class="mini-card">
+              <span>Algo Equity</span>
+              <strong id="equityValue">$7.24M</strong>
+              <svg viewBox="0 0 120 40" preserveAspectRatio="none">
+                <path d="M0 30 L20 24 L40 28 L60 18 L80 22 L100 9 L120 11" />
+              </svg>
+            </div>
+            <div class="mini-card">
+              <span>Crypto Vault</span>
+              <strong id="cryptoValue">$5.81M</strong>
+              <svg viewBox="0 0 120 40" preserveAspectRatio="none">
+                <path d="M0 26 L20 30 L40 20 L60 14 L80 18 L100 8 L120 6" />
+              </svg>
+            </div>
+          </div>
+        </aside>
+
+        <section class="center-panel glass-panel">
+          <div class="scene-header">
+            <div>
+              <span class="header-label">Simulation</span>
+              <h2>Multi-agent market intelligence</h2>
+            </div>
+            <div class="scenario-toggle">
+              <button class="active">Realtime</button>
+              <button>Scenario</button>
+            </div>
+          </div>
+
+          <div id="sceneContainer" aria-label="3D agent network visualization"></div>
+
+          <div class="scene-footer">
+            <div class="signal-box">
+              <span class="label">Signal</span>
+              <strong id="signalText">Momentum breakout</strong>
+            </div>
+            <div class="signal-box">
+              <span class="label">Risk</span>
+              <strong id="riskText">Moderate</strong>
+            </div>
+            <div class="signal-box">
+              <span class="label">Exposure</span>
+              <strong id="exposureText">61.4%</strong>
+            </div>
+          </div>
+        </section>
+
+        <aside class="right-panel glass-panel">
+          <div class="panel-header">
+            <span class="header-label">Top agents</span>
+          </div>
+
+          <div id="agentList" class="agent-list"></div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
