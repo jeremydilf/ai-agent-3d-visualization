@@ -1,1 +1,48 @@
-const { app, BrowserWindow, shell } = require('electron');\nconst path = require('path');\n\nfunction createWindow() {\n  const mainWindow = new BrowserWindow({\n    width: 1500,\n    height: 980,\n    minWidth: 1200,\n    minHeight: 800,\n    backgroundColor: '#07131d',\n    autoHideMenuBar: false,\n    title: 'AI Agent Nexus',\n    webPreferences: {\n      preload: path.join(__dirname, 'preload.js'),\n      contextIsolation: true,\n      nodeIntegration: false,\n      sandbox: false\n    }\n  });\n\n  mainWindow.loadFile(path.join(__dirname, 'index.html'));\n\n  // Open developer tools to see errors\n  mainWindow.webContents.openDevTools();\n\n  mainWindow.webContents.setWindowOpenHandler(({ url }) => {\n    shell.openExternal(url);\n    return { action: 'deny' };\n  });\n\n  mainWindow.webContents.on('crashed', () => {\n    console.error('Window crashed');\n  });\n}\n\napp.whenReady().then(() => {\n  createWindow();\n\n  app.on('activate', () => {\n    if (BrowserWindow.getAllWindows().length === 0) {\n      createWindow();\n    }\n  });\n});\n\napp.on('window-all-closed', () => {\n  if (process.platform !== 'darwin') {\n    app.quit();\n  }\n});\n
+const { app, BrowserWindow, shell } = require('electron');
+const path = require('path');
+
+function createWindow() {
+  const mainWindow = new BrowserWindow({
+    width: 1500,
+    height: 980,
+    minWidth: 1200,
+    minHeight: 800,
+    backgroundColor: '#07131d',
+    autoHideMenuBar: false,
+    title: 'AI Agent Nexus',
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js'),
+      contextIsolation: true,
+      nodeIntegration: false,
+      sandbox: false
+    }
+  });
+
+  mainWindow.loadFile(path.join(__dirname, 'index.html'));
+  mainWindow.webContents.openDevTools();
+
+  mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+    shell.openExternal(url);
+    return { action: 'deny' };
+  });
+
+  mainWindow.webContents.on('crashed', () => {
+    console.error('Window crashed');
+  });
+}
+
+app.whenReady().then(() => {
+  createWindow();
+
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow();
+    }
+  });
+});
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+});
